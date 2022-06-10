@@ -136,6 +136,14 @@ namespace NLayerService
 
         }
 
+        public async Task<Response<List<ProductFullModel>>> GetFullModelWithFunction()
+        {
+            var list = await _context.ProductFullModels.ToListAsync();
+
+            return new Response<List<ProductFullModel>>() { Data = list, Status = 200 };
+
+        }
+
         //CreateWithFeature için kullanılan komutlar
         #region 
         private async Task<int> CreateProduct(ProductDto productDto)

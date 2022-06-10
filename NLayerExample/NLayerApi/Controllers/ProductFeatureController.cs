@@ -23,6 +23,10 @@ namespace NLayerApi.Controllers
             return new ObjectResult(response) { StatusCode = response.Status };
         }
 
+        /// <summary>
+        /// Adds a feature to an existing product.
+        /// </summary>
+        /// <returns></returns>
         [HttpPost("{id}")]
         public async Task<IActionResult> Create(int id, ProductFeatureDto productFeatureDto)
         {

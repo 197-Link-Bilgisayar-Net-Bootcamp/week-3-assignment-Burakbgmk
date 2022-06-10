@@ -19,14 +19,12 @@ namespace NLayerData
         public DbSet<ProductFeature> ProductFeatures { get; set; }
         public DbSet<ProductFullModel> ProductFullModels { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.LogTo(Console.Write);
-        }
+ 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProductFullModel>().HasNoKey();
+            modelBuilder.Entity<ProductFullModel>().ToFunction("fc_full_product_model");
             base.OnModelCreating(modelBuilder);
         }
     }
